@@ -3,208 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe "Flip" Oliveira | Surf Shop Entrepreneur & Sales Expert</title>
+    <title>Felipe "Flip" Oliveira | Visionary Sales Leader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --ocean-blue: #2A5C82;
-            --sand: #E9C46A;
-            --wave: #F4A261;
-            --deep-blue: #264653;
-            --foam: #F8F9FA;
+            --primary: #1a3b50;
+            --secondary: #F4A261;
+            --accent: #E9C46A;
+            --dark: #264653;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #2A5C82 0%, #1a3b50 100%);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
-            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            background: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
         }
 
-        .header {
-            background: var(--ocean-blue);
-            padding: 1rem;
+        /* Navigation */
+        .navbar {
             position: fixed;
             width: 100%;
-            top: 0;
+            padding: 1.5rem 5%;
+            background: rgba(26, 59, 80, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            justify-content: center;
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
         }
 
-        .nav-links a:hover {
-            background: rgba(255,255,255,0.15);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
         .hero {
-            margin-top: 80px;
-            padding: 4rem 2rem;
-            background: linear-gradient(45deg, var(--ocean-blue), #1a3b50);
-            color: white;
+            height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1503220317465-aaad61436b1b') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            border: 4px solid var(--sand);
-            margin-bottom: 1.5rem;
-            object-fit: cover;
+            border: 4px solid var(--accent);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
 
-        .bio-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Sections */
         .section {
-            padding: 4rem 2rem;
+            padding: 6rem 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        /* Experience Section */
         .experience-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 2rem 0;
+            margin-top: 2rem;
         }
 
-        .card {
+        .experience-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover {
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
+        .experience-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card p {
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        /* Social Feed */
         .social-feed {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
         }
 
+        .social-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: scale(1.03);
+        }
+
+        .social-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .social-content {
+            padding: 1.5rem;
+        }
+
+        /* CTA Section */
         .cta {
-            background: var(--wave);
+            background: var(--gradient);
             color: white;
-            padding: 3rem 1rem;
             text-align: center;
-            margin: 2rem 0;
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Form */
         .contact-form {
             max-width: 600px;
-            margin: 2rem auto;
-            padding: 2rem;
+            margin: 0 auto;
             background: white;
-            border-radius: 10px;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
         input, textarea {
             width: 100%;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
         }
 
-        button {
-            background: var(--ocean-blue);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
+        input:focus, textarea:focus {
+            border-color: var(--secondary);
+            outline: none;
         }
 
-        button:hover {
-            background: var(--deep-blue);
-        }
-
+        /* Footer */
         footer {
-            background: var(--deep-blue);
+            background: var(--primary);
             color: white;
-            padding: 2rem;
+            padding: 4rem 5% 2rem;
             text-align: center;
         }
 
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+                display: none;
             }
             
-            .experience-grid {
-                grid-template-columns: 1fr;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-links">
-            <a href="#bio">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#charity">Community</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Flip Oliveira</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#community">Community</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <section class="hero">
-        <img src="document_392701255857811460.jpg" alt="Felipe Oliveira" class="profile-img">
-        <div class="bio-container">
+        <div class="hero-content">
+            <img src="document_392701255857811460.jpg" alt="Felipe Oliveira" class="profile-img">
             <h1>Felipe "Flip" Oliveira</h1>
-            <p>20-Year Sales Expert | Entrepreneur | Managing Partner @ Ocean Magic Surf Shop</p>
-            <p>Jupiter, FL | Business Development Specialist | Community Advocate</p>
+            <p>20-Year Sales Veteran | Entrepreneur | Managing Partner @ Ocean Magic Surf Shop</p>
+            <p>Jupiter, FL | Business Growth Strategist | Community Leader</p>
         </div>
     </section>
 
-    <section id="bio" class="section">
-        <h2>About Flip</h2>
-        <div class="bio-container">
-            <p>Dynamic sales professional with two decades of experience building successful businesses in the outdoor and lifestyle sectors. Co-owner of Ocean Magic Surf Shop in Jupiter, FL, with a passion for community engagement and business growth.</p>
-        </div>
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Dynamic sales professional with two decades of experience building successful businesses in the outdoor and lifestyle sectors. Co-owner of Ocean Magic Surf Shop in Jupiter, FL, with a passion for community engagement and business growth.</p>
     </section>
 
     <section id="experience" class="section">
         <h2>Key Experience</h2>
         <div class="experience-grid">
-            <div class="card">
+            <div class="experience-card">
                 <h3>Ocean Magic Surf Shop</h3>
                 <p>Managing Partner | Jupiter, FL</p>
                 <p>Led business expansion to Gardens Mall, doubled revenue through strategic inventory management and community engagement</p>
             </div>
-            <div class="card">
+            <div class="experience-card">
                 <h3>Timberline Glamping Amelia Island</h3>
                 <p>Business Development Lead</p>
                 <p>Spearheaded customer experience initiatives and operational improvements</p>
@@ -212,37 +411,48 @@
         </div>
     </section>
 
-    <section id="charity" class="section">
+    <section id="community" class="section">
         <h2>Community Involvement</h2>
-        <div class="card">
-            <h3>Little Smiles</h3>
-            <p>Volunteer & Fundraiser</p>
-        </div>
-        <div class="card">
-            <h3>Recovery Church Movement</h3>
-            <p>Active Supporter & Event Organizer</p>
-        </div>
-        <div class="card">
-            <h3>Local Youth Programs</h3>
-            <p>Mentor & Sponsor</p>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Little Smiles</h3>
+                <p>Volunteer & Fundraiser</p>
+            </div>
+            <div class="experience-card">
+                <h3>Recovery Church Movement</h3>
+                <p>Active Supporter & Event Organizer</p>
+            </div>
+            <div class="experience-card">
+                <h3>Local Youth Programs</h3>
+                <p>Mentor & Sponsor</p>
+            </div>
         </div>
     </section>
 
     <section class="section">
         <h2>Latest Updates</h2>
         <div class="social-feed">
-            <div class="card">
-                <h3>Featured in Seaside Retailer</h3>
-                <p>Read about Ocean Magic's success story</p>
-                <a href="https://seasideretailer.com/print-article-840-permanent.html">Read Article</a>
+            <div class="social-card">
+                <img src="https://images.unsplash.com/photo-1584438784894-d7334ed77743" alt="Article">
+                <div class="social-content">
+                    <h3>Featured in Seaside Retailer</h3>
+                    <p>Read about Ocean Magic's success story</p>
+                    <a href="https://seasideretailer.com/print-article-840-permanent.html" style="color: var(--secondary); text-decoration: none;">Read Article →</a>
+                </div>
             </div>
-            <div class="card">
-                <h3>Instagram Highlights</h3>
-                <p>Latest surf shop events and community activities</p>
+            <div class="social-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0" alt="Instagram">
+                <div class="social-content">
+                    <h3>Instagram Highlights</h3>
+                    <p>Latest surf shop events and community activities</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Business Milestones</h3>
-                <p>Recent expansions and achievements</p>
+            <div class="social-card">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Business">
+                <div class="social-content">
+                    <h3>Business Milestones</h3>
+                    <p>Recent expansions and achievements</p>
+                </div>
             </div>
         </div>
     </section>
@@ -251,28 +461,36 @@
         <h2>Work With Flip</h2>
         <p>Available for consulting, speaking engagements, and business development opportunities</p>
         <p><strong>Contact:</strong> 561-294-4482 | flipsales@outlook.com</p>
-        <button onclick="location.href='#contact'">Get In Touch</button>
+        <button class="cta-button" onclick="location.href='#contact'">Get In Touch</button>
     </section>
 
     <section id="contact" class="section">
         <h2>Contact</h2>
         <div class="contact-form">
             <form action="mailto:flipsales@outlook.com" method="post" enctype="text/plain">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Phone">
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
+                <div class="form-group">
+                    <input type="text" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone">
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 Felipe Oliveira | Connect with me:</p>
-        <div class="nav-links">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Facebook</a>
+        <p>© 2025 Felipe Oliveira | Visionary Sales Leader</p>
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
         <p>Phone: 561-294-4482 | Email: flipsales@outlook.com</p>
     </footer>
