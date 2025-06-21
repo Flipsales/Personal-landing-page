@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe "Flip" Oliveira | Sales Expert & Entrepreneur</title>
+    <style>
+        :root {
+            --primary: #2A5C82;
+            --secondary: #F4A261;
+            --accent: #E9C46A;
+            --dark: #264653;
+            --light: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        .header {
+            background: linear-gradient(45deg, var(--primary), #1a3b50);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            background: url('https://images.unsplash.com/photo-1503220317465-aaad61436b1b') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .bio-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-feed {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .cta {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: var(--dark);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-links">
+            <a href="#bio">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#charity">Charity</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="bio-container">
+            <h1>Felipe "Flip" Oliveira</h1>
+            <p>20-Year Sales Veteran | Entrepreneur | Managing Partner @ Ocean Magic Surf Shop</p>
+            <p>Jupiter, FL | Expert in Outdoor Retail & Business Development</p>
+        </div>
+    </section>
+
+    <section id="bio" class="section">
+        <h2>About Flip</h2>
+        <p>Dynamic sales professional with two decades of experience building successful businesses in the outdoor and lifestyle sectors. Passionate entrepreneur currently leading Ocean Magic Surf Shop in Jupiter, FL, while maintaining successful ventures in glamping and retail management.</p>
+    </section>
+
+    <section id="experience" class="section">
+        <h2>Key Experience</h2>
+        <div class="experience-grid">
+            <div class="card">
+                <h3>Ocean Magic Surf Shop</h3>
+                <p>Managing Partner | Jupiter, FL</p>
+                <p>Leading a premier surf and lifestyle retail operation since 2015</p>
+            </div>
+            <div class="card">
+                <h3>Timberline Glamping Amelia Island</h3>
+                <p>Business Development Lead</p>
+                <p>Spearheaded expansion and customer experience initiatives</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="charity" class="section">
+        <h2>Community Involvement</h2>
+        <div class="card">
+            <h3>Little Smiles</h3>
+            <p>Volunteer & Fundraiser</p>
+        </div>
+        <div class="card">
+            <h3>Recovery Church Movement</h3>
+            <p>Active Supporter & Event Organizer</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Latest Updates</h2>
+        <div class="social-feed">
+            <!-- Social media and article tiles would go here -->
+            <div class="card">Instagram Post</div>
+            <div class="card">LinkedIn Article</div>
+            <div class="card">Surf Shop Event</div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Work With Flip</h2>
+        <p>Available for consulting, speaking engagements, and business development opportunities</p>
+        <button onclick="location.href='#contact'">Get In Touch</button>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <div class="contact-form">
+            <form action="mailto:flipsales@outlook.com" method="post" enctype="text/plain">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Felipe Oliveira | Connect with me:</p>
+        <div class="nav-links">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+        </div>
+    </footer>
+</body>
+</html>
